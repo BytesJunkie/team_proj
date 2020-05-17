@@ -33,12 +33,13 @@ $admin_count = mysqli_num_rows($admin_result);
 //3.1.2 If the posted values are equal to the database values, then session will be created for the user.
 if ($count == 1)
 {
-    $_SESSION["username"]=$username;
+$_SESSION["username"]=$username;
 header('refresh:0; url=alumni_page.php');
 }
 else if ($admin_count == 1)
 {
-
+$_SESSION["username"]=$username;
+$_SESSION["admin"]= "true";
 header('refresh:0; url=admin_page.php');
 }
 else{
