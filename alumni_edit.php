@@ -1,6 +1,6 @@
 <?php
 session_start();     
-$user =$_SESSION['loggedin'];
+$user =$_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,6 @@ $user =$_SESSION['loggedin'];
 
 <body>
     <?php
-    $username = $_GET['username'];
 
     $conn =  mysqli_connect("localhost", "root", "", "alumni");
 if ($conn->connect_error) {
@@ -32,32 +31,34 @@ $conn->close();
 $name =  $row["name"];
 $username = $row["username"];
 $password = $row["password"];
-$email = $row["e-mail"];
+$email = $row["email"];
 $school = $row["school"];  
 $description = $row["description"];    
 $approved = $row["approved"];    
-    echo "<p>You name $name";   
-    
-   echo "<p>You approved $approved";   
+
+    if ($approved == "no"){
+        echo "<p>You are an approved member</p>";  
+    } else if ($approved == "yes"){
+      echo "<p>You are not approved yet</p>";  
+    }
 ?>
 
-    <form action="../teamproj/edit_user.php" method="post">
+    <form action="alumni_profile_proccess.php" method="post">
 
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<?php echo $name; ?>"><br><br>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" value="<?php echo $username; ?>" readonly><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="<?php echo $password; ?>"><br><br>
         <label for="email">E-mail:</label>
-        <input type="text" id="email" name="email" value="<?php echo $email; ?>"><br><br>
+        <input type="email" id="email" name="email" value="<?php echo $email; ?>"><br><br>
         <label for="school">School:</label>
         <input type="text" id="school" name="school" value="<?php echo $school; ?>"><br><br>
-                <label for="description">Description:</label>
+        <label for="description">Description:</label>
         <input type="text" id="description" name="description" value="<?php echo $description; ?>"><br><br>
         <label for="approved">Approved:</label>
-        <select id="approved" name="approved">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-        </select><br>
+
         <input type="submit" value="Submit changes">
 
     </form>

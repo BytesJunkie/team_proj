@@ -1,5 +1,6 @@
 <?php
 session_start();
+$user =$_SESSION["username"];
 ?>
 <!-- using Ajax & jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -70,7 +71,8 @@ session_start();
     <div class="row">
         <div class="column left">
             <h2>Column 1</h2>
-            <a href="alumni_edit.php">Edit your profile</a>
+            <p> Hello <?php echo $user ?>,</p>
+            <a href="alumni_edit.php">Click here to edit your profile</a>
         </div>
         <div class="column middle">
             <table class="table table-striped" id="nameTable">
@@ -78,8 +80,8 @@ session_start();
                     <tr data-href="test">
                         <th onclick="sortTable(0)">Name</th>
                         <th onclick="sortTable(1)">Username</th>
-                        <th>School</th>
-                        <th>Approved</th>
+                        <th onclick="sortTable(2)">School</th>
+                        <th onclick="sortTable(3)">Approved</th>
                         <th>Description</th>
                     </tr>
                 </thead>
@@ -98,8 +100,12 @@ session_start();
                         $test = $row["username"];
                         echo "
                         <tr> 
-                        <td><a href=page.php?username='$test' </a>" .$row["name"]. "</td>
-                        <td>" . $row["username"] . "</td><td>" . $row["school"] . "</td><td>" . $row["approved"] . "</td><td>" . $row["description"] . "</td></tr>";
+                        <td>" .$row["name"]. "</td>
+                        <td>" . $row["username"] . "</td>
+                        <td>" . $row["school"] . "</td>
+                        <td>" . $row["approved"] . "</td>
+                        <td>" . $row["description"] . "</td>
+                        </tr>";
                         }
                         echo "</table>";
                         } else { echo "0 results"; }

@@ -78,8 +78,8 @@ session_start();
                     <tr data-href="test">
                         <th onclick="sortTable(0)">Name</th>
                         <th onclick="sortTable(1)">Username</th>
-                        <th>School</th>
-                        <th>Approved</th>
+                        <th onclick="sortTable(2)">School</th>
+                        <th onclick="sortTable(3)">Approved</th>
                         <th>Description</th>
                     </tr>
                 </thead>

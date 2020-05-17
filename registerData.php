@@ -1,7 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $servername1 = "localhost";
 $username1 = "root";
 $password1 = "";
@@ -43,12 +42,8 @@ if (isset($_POST["description"]))
   $description = $_POST["description"];
 } 
 
-$approved = "no";
-//description
-if (isset($_POST["approved"]))
-{
-  $approved = $_POST["approved"];
-} 
+
+
 
 
 
@@ -67,24 +62,19 @@ if ($count == 1)
 {
     $fmsg = "User already exists.";
     echo $fmsg;
-    header('Location: exists.html');
+   // header('Location: exists.html');
 }
 else
 {
-    $stmt = $conn->prepare("INSERT INTO students (name, username, password, email ,school,approved, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss",$name,$username, $password, $email,$school,$approved ,$description);
-    $name = $username = $password = $email = $school = $approved = $description= "";
+    $stmt = $conn->prepare("INSERT INTO students (name, username, password, email ,school, description) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss",$name,$username, $password, $email,$school,$description);
 
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-        $user1 = $_POST["user1"];
-        $email1 = $_POST["email1"];
-        $pass1 = $_POST["pass1"];
-    }
     $stmt->execute();
-    header("Location: Home_registered.php");
+    $stmt->close();
+    $fmsg = "Successful register";
+    echo $fmsg;
+    //header("Location: Home_registered.php");
 }
-$stmt->close();
+
 $conn->close();
 ?>
