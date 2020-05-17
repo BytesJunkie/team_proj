@@ -98,8 +98,12 @@ session_start();
                         $test = $row["username"];
                         echo "
                         <tr> 
-                        <td><a href=page.php?username='$test' </a>" .$row["name"]. "</td>
-                        <td>" . $row["username"] . "</td><td>" . $row["school"] . "</td><td>" . $row["approved"] . "</td><td>" . $row["description"] . "</td></tr>";
+                        <td>" .$row["name"]. "</td>
+                        <td>" . $row["username"] . "</td>
+                        <td>" . $row["school"] . "</td>
+                        <td>" . $row["approved"] . "</td>
+                        <td>" . $row["description"] . "</td>
+                        </tr>";
                         }
                         echo "</table>";
                         } else { echo "0 results"; }
