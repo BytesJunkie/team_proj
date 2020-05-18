@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<link rel="stylesheet" type="text/css" href="css/aded.css">
 <head>
     <title>Covid-19 data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,12 +32,18 @@ $email = $row["email"];
 $school = $row["school"];  
 $description = $row["description"];    
 $approved = $row["approved"];    
-    echo "<p>You name $name";   
-    
-   echo "<p>You approved $approved";   
+      
 ?>
 
+    <div class="container">
     <form action="edit_user.php" method="post">
+       
+       <?php   
+        echo "<p>Your name is $name</p>";?>
+        
+        <?php   
+        echo "<p>You are approved: $approved</p>";
+         ?><br><br>
 
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<?php echo $name; ?>"><br><br>
@@ -51,15 +57,15 @@ $approved = $row["approved"];
         <input type="text" id="school" name="school" value="<?php echo $school; ?>"><br><br>
         <label for="description">Description:</label>
         <input type="text" id="description" name="description" value="<?php echo $description; ?>"><br><br>
-        <label for="approved">Approved:</label>
+        <label for="approved">Approved:</label><br>
         <select id="approved" name="approved">
             <option value="no">No</option>
             <option value="yes">Yes</option>
-        </select><br>
+        </select><br><br>
         <input type="submit" value="Submit changes">
 
     </form>
-
+    </div>
 </body>
 
 </html>

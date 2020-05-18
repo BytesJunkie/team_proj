@@ -4,7 +4,7 @@ $user =$_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html>
-
+<link rel="stylesheet" type="text/css" href="css/aled.css">
 <head>
     <title>Covid-19 data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +42,7 @@ $approved = $row["approved"];
       echo "<p>You are not approved yet</p>";  
     }
 ?>
-
+    <div class="container">
     <form action="alumni_profile_proccess.php" method="post">
 
         <label for="name">Name:</label>
@@ -62,7 +62,7 @@ $approved = $row["approved"];
         <input type="submit" value="Submit changes">
 
     </form>
-
+    </div>
 </body>
 
 </html>

@@ -5,6 +5,7 @@ session_start();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- using bootrstrap framework -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/adp.css">
 <!DOCTYPE html>
 <html>
 
@@ -12,56 +13,7 @@ session_start();
     <title>Team project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        /* Create three equal columns that floats next to each other */
-        /* Create three unequal columns that floats next to each other */
-        .column {
-            float: left;
-            padding: 10px;
-            height: 300px;
-            /* Should be removed. Only for demonstration */
-        }
-
-        .left {
-            width: 30%;
-            padding-left: 2%
-        }
-
-        .middle {
-            width: 70%;
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        table {
-            border-collapse: collapse;
-            /*margin-left: 5px; */
-            margin-left: auto;
-            margin-right: auto;
-            width: 400px;
-            color: #000000;
-            font-family: monospace;
-            font-size: 18px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #2E8B57;
-            color: white;
-            cursor: pointer;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2
-        }
+        
 
     </style>
 </head>
@@ -69,8 +21,9 @@ session_start();
 <body>
     <div class="row">
         <div class="column left">
-            <h2>Column 1</h2>
-            <p>Some text..</p>
+            <h2><b>Alumni</b></h2>
+            <p>Welcome, <?php echo $_SESSION['username']?> </p>
+            <p>You can edit the users' profiles by clicking on them</p>
         </div>
         <div class="column middle">
             <table class="table table-striped" id="nameTable">

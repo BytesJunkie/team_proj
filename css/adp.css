@@ -1,0 +1,63 @@
+* {
+            box-sizing: border-box;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        /* Create three unequal columns that floats next to each other */
+        body{
+        	background: url(adbg.jpg);
+        	position: center;
+        	background-size: cover;
+        }
+        .column {
+            float: left;
+            padding: 120px;
+            height: 300px;
+            /* Should be removed. Only for demonstration */
+        }
+        .column h2{
+        	text-align: center;
+        	font-size: 34px;
+        }
+        .column p{
+        	text-align: center;
+        	font-size: 18px;
+       	}
+        .left {
+            width: 100%;
+        }
+
+        .middle {
+            width: 80%;
+            margin-left:10%;
+            margin-right:10%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        table {
+            border-collapse: collapse;
+            /*margin-left: 5px; */
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            color: #000000;
+            font-family: monospace;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2E8B57;
+            color: white;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
